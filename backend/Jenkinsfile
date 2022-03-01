@@ -1,0 +1,19 @@
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+               echo 'Build Step'
+            }
+        }
+        stage('Test') {
+               
+                steps {
+                    #bat 'python model_api/tests/test_prediction.py'
+                }
+
+
+   
+            }
+        }
+    }
