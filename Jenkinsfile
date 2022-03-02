@@ -1,21 +1,57 @@
+def buildImage(name,path){
+    return docker.build("${name}:latest", "${path}")
+}
+
 pipeline {
     agent any
-    stages {
-        stage('Build') {
-            steps {
-               echo 'Build Step'
-            }
-        }
-        stage('Test') {
+    parameters {
+        string (
+                name : 'IP',
+                defaultValue: '192.168.1.220',
+                description: 'VM IP')
+    }
 
-                steps {
+    stages {
+        stage('Run Builds'){
+            parallel {
+                stage('Build Frontend') {
+                    steps {
+                        script{
+                              /**build Frontend image**/
+                              dir('frontend'){
+                                echo "BACKENDHOST=${IP} > .env.local" 
+                                buildImage('frontend','.')
+                              }
+                        }
         
-                    echo ('TEST STEP')
-                    echo('This is now144')
+                    }
                 }
 
+                stage('Build Backend') {
+                    steps {
+                        script{
+                              /**build Python image**/
+                              dir('api'){
+                                buildImage('api','.')
+                              }
+                        }
+        
+                    }
+                }
+            }
+        }
 
-   
+        stage('Deploy'){
+            
+            steps{
+                script{
+
+                    sh """
+                    docker-compose up -d
+                    """
+                }
             }
         }
     }
+}
+
