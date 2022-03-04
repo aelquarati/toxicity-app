@@ -1,10 +1,10 @@
 from flask import Flask, request
 from flask_restful import Resource, Api
-#from flask_cors import CORS
+from flask_cors import CORS
 from toxicbert.predict import predict_toxicity
 
 app = Flask(__name__)
-#CORS(app)
+CORS(app)
 api  = Api(app)
 
 
