@@ -8,11 +8,7 @@ app = Flask(__name__)
 api  = Api(app)
 
 
-
-@app.route("/health")
-def health():
-    return '{"response":"ok"}'
-    
+@app.route("/")
 class Input_data(Resource): 
     
     def post (self):
