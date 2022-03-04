@@ -4,3 +4,4 @@ Flask==1.1.2
 Flask-RESTful==0.3.9
 joblib==1.0.1
 flask-cors==3.0.10
+itsdangerous==2.0.1

@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.7-slim
 WORKDIR /backend
 ENV FLASK_APP=flask_app.py
 ENV FLASK_RUN_HOST=0.0.0.0
