@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'bat \'python model_api/tests/test_prediction.py\''
+        sh 'sh -c \'python model_api/tests/test_prediction.py\''
       }
     }
 
