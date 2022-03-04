@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'docker compose up -d .'
+        sh 'bat \'python model_api/tests/test_prediction.py\''
       }
     }
 
