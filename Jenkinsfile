@@ -3,6 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
+        sh 'sh \'python3 pip install detoxify\''
         sh 'sh -c \'python3 backend/tests/test_prediction.py\''
         echo 'Unit test pass'
       }
