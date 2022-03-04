@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'python pytest'
+        sh 'docker compose up -d .'
       }
     }
 
