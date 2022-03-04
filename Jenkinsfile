@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'docker build . -t mynewim'
+        sh 'docker build .backend -t mynewim'
         sh 'docker run mynewimage '
         sh 'sh \'pip install detoxify\''
         sh 'sh -c \'python3 backend/tests/test_prediction.py\''
