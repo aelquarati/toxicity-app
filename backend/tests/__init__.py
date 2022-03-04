@@ -1,1 +1,1 @@
-from model_api import toxicbert
+from backend import toxicbert
