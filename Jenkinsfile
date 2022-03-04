@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Test') {
       steps {
-        sh 'sh -c \'python3 /backend/tests/test_prediction.py\''
+        sh 'sh -c \'python3 backend/tests/test_prediction.py\''
       }
     }
 
