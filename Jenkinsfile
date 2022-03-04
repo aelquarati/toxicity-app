@@ -1,14 +1,9 @@
 pipeline {
-  agent {
-    docker {
-      image 'python:3.7'
-    }
-
-  }
+  agent any
   stages {
     stage('Test') {
       steps {
-        sh 'sh -c \'python model_api/tests/test_prediction.py\''
+        sh 'sh -c \'python3 model_api/tests/test_prediction.py\''
       }
     }
 
