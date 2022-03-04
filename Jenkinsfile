@@ -6,6 +6,7 @@ pipeline {
         sh 'sh \'pip install detoxify\''
         sh 'sh -c \'python3 backend/tests/test_prediction.py\''
         echo 'Unit test pass'
+        sh 'docker run my image -d'
       }
     }
 
