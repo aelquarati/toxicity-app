@@ -5,7 +5,7 @@ pipeline {
       steps {
         sh 'docker build ./backend -t mynewim'
         sh 'docker run mynewim'
-        echo 'build step succees'
+        echo 'build step succeed'
       }
     }
 
