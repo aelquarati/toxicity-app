@@ -3,7 +3,6 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker run mynewim'
         echo 'build step succeed'
       }
     }
