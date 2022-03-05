@@ -10,7 +10,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'pwd'
-        sh 'sh -c \'python3 pip -m install torch==1.7.0 detoxify==0.4.0 pytest\''
+        sh 'sh -c \'pip -m install python3 /toxicity-app/backend/requirements.txt\''
         sh 'sh -c \'python3 -m pytest\''
       }
     }
