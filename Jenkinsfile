@@ -10,7 +10,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'pwd'
-        sh 'sh -c \'pip install "/var/jenkins_home/workspace/ty-app_feature_TOX-5-add-backend/toxicity-app/backend/requirements.txt"\''
+        sh 'sh -c \'pip install "/toxicity-app/backend/requirements.txt"\''
         sh 'sh -c \'python3 -m pytest\''
       }
     }
