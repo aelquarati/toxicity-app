@@ -3,14 +3,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build --no-cache ./backend -t mynewim'
+        sh 'docker run mynewim'
         echo 'build step succeed'
       }
     }
 
     stage('Test') {
       steps {
-        sh 'sh -c \'python3 backend/tests/test_prediction.py\''
+        sh 'sh -c \'python3 /backend/tests/test_prediction.py\''
       }
     }
 
