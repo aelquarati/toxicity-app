@@ -10,7 +10,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'pwd'
-        sh 'sh -c \'pip install python3 /toxicity-app/backend/requirements.txt\''
+        sh 'sh -c \'pip install pytest\''
         sh 'sh -c \'python3 -m pytest\''
       }
     }
