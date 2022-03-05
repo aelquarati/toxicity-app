@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build ./backend -t mynewim'
+        sh 'docker build --no-cache ./backend -t mynewim'
         sh 'docker run mynewim'
         echo 'build step succeed'
       }
