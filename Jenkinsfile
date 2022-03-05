@@ -1,10 +1,17 @@
 pipeline {
   agent any
   stages {
+    stage('Build') {
+      steps {
+        sh 'docker build ./backend -t mynewim'
+        sh 'docker run mynewim'
+      }
+    }
+
     stage('Test') {
       steps {
+        sh 'sh \'pip install detoxify\''
         sh 'sh -c \'python3 backend/tests/test_prediction.py\''
-        echo 'Unit test passed'
       }
     }
 
