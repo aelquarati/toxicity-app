@@ -11,6 +11,7 @@ pipeline {
       steps {
         sh 'sh -c \'pip install pytest detoxify\''
         sh 'sh -c \'python3 -m pytest\''
+        sh 'pwd'
       }
     }
 
