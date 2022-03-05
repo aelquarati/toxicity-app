@@ -10,7 +10,7 @@ pipeline {
     stage('Test') {
       steps {
         sh 'sh -c \'pip install pytest\''
-        sh 'sh -c \'python -m pytest\''
+        sh 'sh -c \'python3 -m pytest\''
       }
     }
 
