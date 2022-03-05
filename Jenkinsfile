@@ -9,7 +9,7 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'sh -c \'pip install pytest Detoxify Torch\''
+        sh 'sh -c \'pip install pytest detoxify torch\''
         sh 'sh -c \'python3 -m pytest\''
       }
     }
