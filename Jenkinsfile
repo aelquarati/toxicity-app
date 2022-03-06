@@ -20,8 +20,8 @@ pipeline {
         withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'github_jenkins',keyFileVariable: 'SSH_KEY')]) {
           sh '''
           git remote set-url origin git@github.com:aelquarati/toxicity-app
-          git config user.name aelquarati
-          git config user.email el.quarati1@gmail.com
+          git config user.name marwaneaaziz
+          git config user.email marwane.aaziz@efrei.net
           GIT_SSH_COMMAND="ssh -i $SSH_KEY"
           if [ ! `git branch --list develop` ]
           then git branch develop
