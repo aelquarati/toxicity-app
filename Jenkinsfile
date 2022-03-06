@@ -26,7 +26,8 @@ then git branch develop
 fi
 git checkout develop
 git commit --allow-empty -m "test withCredentials"
-git push origin develop'''
+git push origin develop
+}'''
         }
       }
 
