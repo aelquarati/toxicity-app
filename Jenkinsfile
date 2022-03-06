@@ -18,7 +18,7 @@ pipeline {
       agent any
       steps {
         withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'github_jenkins',keyFileVariable: 'SSH_KEY')]) {
-          sh 'git push https://github.com/aelquarati/toxicity-app.git origin develop'
+          sh 'git push https://github.com/aelquarati/toxicity-app.git '
         }
 
       }
