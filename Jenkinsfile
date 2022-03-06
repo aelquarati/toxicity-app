@@ -17,7 +17,7 @@ pipeline {
     stage('Push ') {
       agent any
       steps {
-        withCredentials(bindings: [usernamePassword(credentialsId: 'GitHub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+        withCredentials([sshUserPrivateKey(credentialsId: 'github_jenkins',keyFileVariable: 'SSH_KEY')]) { 
           bat 'git push https://github.com/aelquarati/toxicity-app.git origin develop'
         }
 
