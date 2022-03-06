@@ -9,9 +9,20 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'pwd'
-        sh 'sh -c \'req = python3 -m /backend/requirements.txt pip install req\''
-        sh 'sh -c \'python3 -m pytest\''
+        echo 'test step succed'
+      }
+    }
+
+    stage('Push ') {
+      steps {
+        sh '''if [ ! `git branch --list develop` ]
+then git branch develop
+fi
+
+git checkout develop
+git add *
+git commit -m "test commit"
+git push origin develop'''
       }
     }
 
