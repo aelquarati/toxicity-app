@@ -23,8 +23,8 @@ git config --global user.name marwaneaaziz
 if [ ! `git branch --list develop` ]
 then git branch develop
 fi
-git checkout feature/TOX-5-add-backend
-git merge develop'''
+git checkout develop
+git merge feature/TOX-5-add-backend'''
       }
     }
 
