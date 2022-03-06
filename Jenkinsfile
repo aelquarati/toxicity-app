@@ -18,21 +18,6 @@ pipeline {
       agent any
       steps {
         echo 'Push compeleted'
-        sh '''
-         sshagent([\'github_jenkins\']) {
-git remote set-url origin git@github.com:aelquarati/toxicity-app
-          git config user.name marwaneaaziz
-          git config user.email marwane.aaziz@efrei.net
-         
-          if [ ! `git branch --list develop` ]
-          then git branch develop
-          fi
-          git checkout develop
-          git commit --allow-empty -m "test withCredentials"
-          git push origin develop
- 
-         } 
-          '''
       }
     }
 
