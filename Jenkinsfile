@@ -18,7 +18,18 @@ pipeline {
       agent any
       steps {
         withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'github_jenkins',keyFileVariable: 'SSH_KEY')]) {
-          sh 'git push https://github.com/aelquarati/toxicity-app.git '
+          sh '''
+          git remote set-url origin git@github.com:https://github.com/aelquarati/toxicity-app
+          git config user.name marwaneaaziz
+          git config user.email marwane.aaziz@efrei.net
+          GIT_SSH_COMMAND="ssh -i $SSH_KEY"
+          if [ ! `git branch --list develop` ]
+          then git branch develop
+          fi
+          git checkout develop
+          git commit --allow-empty -m "test withCredentials"
+          git push origin develop
+          '''
         }
 
       }
