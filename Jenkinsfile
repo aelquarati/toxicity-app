@@ -15,7 +15,11 @@ pipeline {
 
     stage('Push ') {
       steps {
-        sh '''if [ ! `git branch --list develop` ]
+        sh '''git config --global user.email "marwane.aaziz@efrei.net"
+
+git config --global user.name marwaneaaziz
+
+if [ ! `git branch --list develop` ]
 then git branch develop
 fi
 
