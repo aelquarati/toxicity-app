@@ -24,7 +24,8 @@ if [ ! `git branch --list develop` ]
 then git branch develop
 fi
 git checkout develop
-git merge feature/TOX-5-add-backend'''
+git merge feature/TOX-5-add-backend
+git push -u origin develop'''
       }
     }
 
