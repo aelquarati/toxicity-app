@@ -3,13 +3,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh 'pip install pytest'
         echo 'build step succeed'
       }
     }
 
     stage('Test') {
       steps {
-        echo 'test step succed'
+        sh 'sh -c \'python3 -m pytest\''
       }
     }
 
