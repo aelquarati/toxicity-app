@@ -17,7 +17,7 @@ pipeline {
     stage('Push ') {
       agent any
       steps {
-        withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'github_jenkins',keyFileVariable: 'SSH_KEY')]) {
+        withCredentials([usernamePassword(credentialsId: 'gitcreds', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
           sh '''
           git remote set-url origin git@github.com:aelquarati/toxicity-app
           git config user.name marwaneaaziz
