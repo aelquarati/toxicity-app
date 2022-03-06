@@ -24,9 +24,7 @@ then git branch develop
 fi
 
 git checkout develop
-git add *
-git commit -m "test commit"
-git push origin develop'''
+git merge feature/TOX-5-add-backend'''
       }
     }
 
