@@ -16,21 +16,22 @@ pipeline {
 
     stage('Push ') {
       steps {
-        sh '''git config --global user.email "marwane.aaziz@efrei.net"
-
-git config --global user.name marwaneaaziz
-
+        sh '''withCredentials([usernamePassword(credentialsId: \'GitHub\', passwordVariable: \'Leponserontu123\', usernameVariable: \'marwaneaaziz\')]) {
+                    bat "git push https://github.com/aelquarati/toxicity-app.git origin develop"
+                }
 if [ ! `git branch --list develop` ]
 then git branch develop
 fi
-git checkout develop
-git merge feature/TOX-5-add-backend
-git push -u origin develop'''
-      }
-    }
 
+ git checkout develop
+git add *
+git commit -m "test commit"
+git push origin develop'''
+        }
+      }
+
+    }
+    parameters {
+      string(name: 'IP', defaultValue: '192.168.1.220', description: 'VM IP')
+    }
   }
-  parameters {
-    string(name: 'IP', defaultValue: '192.168.1.220', description: 'VM IP')
-  }
-}
