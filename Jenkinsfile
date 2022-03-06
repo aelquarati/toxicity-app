@@ -25,7 +25,7 @@ then git branch develop
 fi
 git checkout develop
 git merge feature/TOX-5-add-backend
-git push -u origin develop'''
+git push  origin develop'''
       }
     }
 
