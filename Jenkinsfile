@@ -32,6 +32,7 @@ pipeline {
           '''
         }
 
+        echo 'Push compeleted'
       }
     }
 
