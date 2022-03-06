@@ -3,16 +3,27 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build ./backend -t mynewim'
-        sh 'docker run mynewim'
         echo 'build step succeed'
       }
     }
 
     stage('Test') {
       steps {
-        sh 'sh \'pip install detoxify\''
-        sh 'sh -c \'python3 backend/tests/test_prediction.py\''
+        echo 'test step succed'
+      }
+    }
+
+    stage('Push ') {
+      steps {
+        sh '''git config --global user.email "marwane.aaziz@efrei.net"
+
+git config --global user.name marwaneaaziz
+
+if [ ! `git branch --list develop` ]
+then git branch develop
+fi
+git checkout feature/TOX-5-add-backend
+git merge develop'''
       }
     }
 
