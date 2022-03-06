@@ -17,10 +17,10 @@ pipeline {
     stage('Push ') {
       agent any
       steps {
-        sh '''withCredentials([usernamePassword(credentialsId: \'GitHub\', passwordVariable: \'Leponserontu123\', usernameVariable: \'marwaneaaziz\')])
-bat "git push https://github.com/aelquarati/toxicity-app.git origin develop"
+        withCredentials([usernamePassword(credentialsId: 'GitHub', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+                    bat "git push https://github.com/aelquarati/toxicity-app.git origin develop"
+                }
 
-'''
       }
     }
 
