@@ -19,7 +19,7 @@ pipeline {
       steps {
         withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'github_jenkins',keyFileVariable: 'SSH_KEY')]) {
           sh '''
-          git remote set-url origin git@github.com:https://github.com/aelquarati/toxicity-app
+          git remote set-url origin git@github.com:aelquarati/toxicity-app
           git config user.name marwaneaaziz
           git config user.email marwane.aaziz@efrei.net
           GIT_SSH_COMMAND="ssh -i $SSH_KEY"
