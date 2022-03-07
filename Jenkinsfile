@@ -18,7 +18,7 @@ pipeline {
       agent any
       steps {
         echo 'Push compeleted'
-        sh '''sshagent([\'github_jenkins\']) {
+        sshagent(['github_jenkins']) {
         sh """
           git remote set-url origin git@github.com:aelquarati/toxicity-app
           git config user.name marwaneaaziz
@@ -28,7 +28,7 @@ pipeline {
           git commit --allow-empty -m "test withCredentials"
           git push origin develop
  """
-         }'''
+         }
         }
       }
 
