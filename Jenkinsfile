@@ -17,7 +17,7 @@ pipeline {
     stage('Push ') {
       agent any
       steps {
-        sh '''
+        sh '''          git remote set-url origin git@github.com:aelquarati/toxicity-app
           git checkout develop
           git commit --allow-empty -m "test withCredentials"
           git push origin develop
