@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'pip install pytest'
+        sh 'python37 pip3 install pytest Detoxify torch'
         echo 'build step succeed'
       }
     }
