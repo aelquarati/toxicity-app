@@ -5,24 +5,13 @@ pipeline {
       parallel {
         stage('Build Frontend') {
           steps {
-            script {
-              dir('frontend'){
-                echo "BACKENDHOST=${IP} > .env.local"
-                buildImage('frontend','.')
-              }
-            }
-
+            sh 'docker build --no-cache ./frontend -t frontend'
           }
         }
 
         stage('Build Backend') {
           steps {
-            script {
-              dir('api'){
-                buildImage('backend','.')
-              }
-            }
-
+            sh 'docker build --no-cache ./backend -t backend'
           }
         }
 
