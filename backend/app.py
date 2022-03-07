@@ -25,7 +25,8 @@ class Input_data(Resource):
         for dicts in scores:
             for keys in dicts:
                 dicts[keys] = str(dicts[keys])
-        return scores
+            
+        return dicts
  
 api.add_resource(Input_data,"/predict")
 

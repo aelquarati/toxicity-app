@@ -66,7 +66,7 @@ export default function Home() {
     //reset to zero
     setLabel([])
     setValue([])
-   const res = await fetch(`http://${process.env.BACKENDHOST}:5000/predict`,{
+   const res = await fetch(`http://192.168.56.1:5000/predict`,{
         method: "POST",
         body: JSON.stringify({
           text: sentiment_text.current.value}),
