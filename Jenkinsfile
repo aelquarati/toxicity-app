@@ -22,6 +22,7 @@ pipeline {
           git commit --allow-empty -m "test withCredentials"
           git push origin develop
  '''
+        echo 'Push to develop '
       }
     }
 
