@@ -3,27 +3,26 @@ pipeline {
   stages {
     stage('Build') {
       steps {
+        sh 'pip install pytest'
         echo 'build step succeed'
       }
     }
 
     stage('Test') {
       steps {
-        echo 'test step succed'
+        echo 'Test stage completed'
       }
     }
 
     stage('Push ') {
+      agent any
       steps {
-        sh '''git config --global user.email "marwane.aaziz@efrei.net"
-
-git config --global user.name marwaneaaziz
-
-if [ ! `git branch --list develop` ]
-then git branch develop
-fi
-git checkout feature/TOX-5-add-backend
-git merge develop'''
+        sh '''          git remote set-url origin git@github.com:aelquarati/toxicity-app
+          git checkout develop
+          git commit --allow-empty -m "test withCredentials"
+          git push origin develop
+ '''
+        echo 'Push to develop '
       }
     }
 
