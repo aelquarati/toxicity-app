@@ -10,8 +10,8 @@ pipeline {
 
     stage('Test') {
       steps {
+        sh 'sh -c \'python3 -m pytest\''
         echo 'Test stage completed'
-        sh 'python3 -c pytest'
       }
     }
 
